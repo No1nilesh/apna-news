@@ -8,12 +8,12 @@ const  NewsItem =(props)=>  {
       <div>
             <div className="card" >
     <img src={imageUrl} className="card-img-top" style={{height:"14.5rem"}} alt="..."/>
-    <div className="card-body">
+    <div className="card-body" style={{backgroundColor:`${props.mode==="dark"?"#3F0071":"white"}`}}>
         <h5 className="card-title">{title}</h5>
         <p className="card-text">{discription}</p><h4> <span className="badge bg-danger">{source}</span></h4>
         <p className="card-text"><small className="text-muted">Last updated {new Date(date).toGMTString()}</small></p>
        
-        <a rel='noreferrer' href={newsUrl} target="_blank" className="btn btn-sml btn-primary">Read more</a>
+        <a rel='noreferrer' href={newsUrl} target="_blank" className={`btn btn-sml btn-${props.mode==="dark"?"dark":"primary"}`}>Read more</a>
     </div>
 </div>
       </div>

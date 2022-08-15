@@ -1,12 +1,15 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Link } from "react-router-dom";
 
-const NavBar = () => {
+const NavBar = (props) => {
+
+
+ 
 
     return (
         <div>
             
-            <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-primary style='color:white'">
+            <nav className={`navbar fixed-top navbar-expand-lg navbar-dark bg-${props.mode} style='color:white'`}>
                 <div className="container-fluid">
                     <Link className="navbar-brand" to="/">Apna news</Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,7 +28,12 @@ const NavBar = () => {
                             <li className="nav-item"><Link className="nav-link" to="/sports">Sports</Link></li>
                             <li className="nav-item"><Link className="nav-link" to="/technology">Technology</Link></li>
                         </ul>
+                        
                     </div>
+                    <div className="form-check form-switch">
+  <input className="form-check-input" onClick={props.handleMode} type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
+  <label className="nav-item nav-link"  htmlFor="flexSwitchCheckDefault">{`${props.mode==="dark"?"Enable Light Mode":"Enable Dark Mode"}`}</label>
+</div>
                 </div>
             </nav>
         </div>
